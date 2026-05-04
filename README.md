@@ -72,7 +72,9 @@ src/
 
 ## 📸 Ekran Görüntüleri
 
-> *(Buraya proje ekran görüntülerini ekleyebilirsin)*
+<img width="300" alt="image" src="https://github.com/user-attachments/assets/0b0a6e69-8fe3-4e61-8d2f-b06cd01dcad1" />
+
+
 
 ---
 
