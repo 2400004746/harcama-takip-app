@@ -1,0 +1,7 @@
+{
+  "name": "Ödev",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

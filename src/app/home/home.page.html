@@ -1,0 +1,75 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Harcama Takip
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+    <ion-item>
+      <ion-input 
+        label="Harcama Adı"
+        labelPlacement="floating"
+        placeholder="Harcama adı giriniz"
+        [(ngModel)]="isim"
+        >
+      </ion-input>
+    </ion-item>
+    <p *ngIf="formGonderildi&&isim.trim()==''">Harcama adı boş bırakılamaz</p>
+
+    <ion-item>
+      <ion-input 
+        label="Tutar (₺)"
+        labelPlacement="floating"
+        placeholder="0"
+        type="number"
+        [(ngModel)]="tutar"
+        >
+      </ion-input>
+    </ion-item>
+    <p *ngIf="formGonderildi&&tutar<=0">Tutar Giriniz</p>
+
+    <ion-item>
+      <ion-select label="Kategori" [(ngModel)]="seciliKategori">
+        <ion-select-option *ngFor="let k of kategoriler" [value]="k">{{ k }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-button 
+    (click)="harcamaEkle()" 
+    id="open-toast" 
+    expand="block" 
+    color="warning">Ekle</ion-button>
+
+    <h2>Toplam: {{ toplamHesapla() | currency:'TL':'symbol':'1.2-2' }}</h2>
+
+    <h2>Harcamalar</h2>
+    <ion-list>
+       <ion-item-sliding *ngFor="let h of harcamalar; let i = index">
+          <ion-item>
+            <div slot="start" style="width:5px;height:40px;" [style.background]="getRenk(h.kategori)"></div>
+            <ion-label style="margin-left:8px;">
+              <h2>{{ h.isim }}</h2>
+              <p>{{ h.kategori }} - {{ h.tarih }}</p>
+            </ion-label>
+            <p slot="end">{{ h.tutar | currency:'TL':'symbol':'1.2-2' }}</p>
+          </ion-item>
+          <ion-item-options>
+            <ion-item-option  id="delete-toast" color="danger" (click)="harcamaSil(i)" >Sil</ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+    </ion-list>
+
+    <ion-toast 
+    [isOpen]="isOpen"
+    message="Harcama başarı ile kayıt edildi." 
+    [duration]="5000">
+    </ion-toast>
+    <ion-toast 
+    trigger="delete-toast" 
+    message="Harcama başarı ile silindi." 
+    [duration]="5000">
+    </ion-toast>
+
+</ion-content>
