@@ -1,6 +1,6 @@
 # 💸 Harcama Takip Uygulaması
 
-> TBP4001 – Mobil Programlama | Ionic Framework ile geliştirilmiş günlük harcama takip uygulaması.
+> Mobil Programlama | Ionic Framework ile geliştirilmiş günlük harcama takip uygulaması.
 
 ---
 
