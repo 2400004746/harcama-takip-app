@@ -16,7 +16,7 @@
         >
       </ion-input>
     </ion-item>
-    <p *ngIf="formGonderildi&&isim.trim()==''">Harcama adı boş bırakılamaz</p>
+    <p *ngIf="formGonderildi&&isim.trim()==''">Harcama adı boş bırakılmaz</p>
 
     <ion-item>
       <ion-input 
@@ -28,7 +28,7 @@
         >
       </ion-input>
     </ion-item>
-    <p *ngIf="formGonderildi&&tutar<=0">Tutar Giriniz</p>
+    <p *ngIf="formGonderildi&&tutar<=0">Fiyat Giriniz</p>
 
     <ion-item>
       <ion-select label="Kategori" [(ngModel)]="seciliKategori">
